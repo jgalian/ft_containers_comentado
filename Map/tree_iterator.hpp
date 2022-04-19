@@ -87,11 +87,6 @@ namespace ft
 				return (*this);
 			}
 
-			// operator tree_iterator<const T, node_type>(void) const				// No entiendo esto
-			// {
-			// 	return tree_iterator<const T, node_type>(this->base());
-			// }
-
 			node_type* base() const
 			{
 				return (this->_node);
