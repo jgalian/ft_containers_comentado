@@ -9,8 +9,6 @@
 # include "pair.hpp"
 # include "tree_iterator.hpp"
 
-#include <iostream>						// QUITAR ////////////////////////////////////////////////
-
 namespace ft
 {
 
@@ -37,14 +35,14 @@ namespace ft
 			typedef ft::reverse_iterator<const_iterator>						const_reverse_iterator;
 			typedef std::ptrdiff_t												difference_type;
 			typedef size_t														size_type;
-			class	value_compare : public std::binary_function<value_type, value_type, bool> 	// En cplusplus aparece como funcion de clase y aquí como clase directamente
+			class	value_compare : public std::binary_function<value_type, value_type, bool>
 			{																					// https://www.cplusplus.com/reference/map/map/value_comp/
 				public:
 					typedef bool result_type;
 					typedef value_type first_argument_type;
 					typedef value_type second_argument_type;
 
-				protected:														// Estaba como public, pero en cplusplus aparece como protected
+				protected:													
 					Compare	comp;
 
 				public:
@@ -344,15 +342,11 @@ namespace ft
 
 			void clear(void)
 			{
-				if (this->_size == 0)
-					return ;
-				erase(begin(), end());								// ¿Valdría con esto?
-
-				// node_ptr endnode = this->end().base();			// No entiendo esto, porque supuestamente end() apunta detrás del último elemento.
-				// endnode->parent->right = NULL;					// Creo que va al padre del end() que sería el último elemento. Pero no entiendo bien lo de right
-				// this->_recursive_clear(this->_root);
-				// this->_root = endnode;
-				// this->_size = 0;
+				node_ptr endnode = this->end().base();			
+				endnode->parent->right = NULL;					
+				this->_recursive_clear(this->_root);
+				this->_root = endnode;
+				this->_size = 0;
 			}
 
 
@@ -364,7 +358,7 @@ namespace ft
 			key_compare key_comp(void) const
 			{
 				return (this->_key_cmp);
-				//return (key_compare());						// Creo que es mejor lo de arriba porque en teoría devuelve copia, no genera uno nuevo
+				//return (key_compare());						
 			}
 
 			value_compare value_comp(void) const
