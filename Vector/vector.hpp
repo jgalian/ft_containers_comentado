@@ -284,16 +284,6 @@ namespace ft
 			void assign(typename ft::enable_if<!is_integral<InputIterator>::value,
 				InputIterator>::type first, InputIterator last)
 			{
-				// size_t	i = 0;
-				// this->clear();
-				// InputIterator tmp = first;
-				// while (tmp != last)
-				// {
-				// 	tmp++;
-				// 	i++;
-				// }
-				// if (this->_capacity < i)
-
 				size_t	i = last - first;
 				this->clear();
 
@@ -445,11 +435,6 @@ namespace ft
 				for (iterator it = tmp.begin(); it != tmp.end(); it++)
 					this->push_back(*it);
 				return position;
-
-				// for (iterator it = position; it != this->end() - 1; ++it)
-				// 	*it = *(it + 1);
-				// pop_back();
-				// return position;
 			}
 
 			iterator erase(iterator first, iterator last)
@@ -511,7 +496,6 @@ namespace ft
 					this->_alloc.deallocate(this->_array, this->_capacity);
 				this->_array = new_alloc;
 				this->_capacity = n;
-				// Habria que actualizar size?
 			}
 	};
 
