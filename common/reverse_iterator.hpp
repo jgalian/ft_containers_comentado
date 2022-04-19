@@ -20,12 +20,7 @@ namespace ft
 {
 
 	template <class Iterator>
-	class reverse_iterator // : ft::iterator
-		// <typename ft::iterator_traits<Iterator>::iterator_category,
-		// typename ft::iterator_traits<Iterator>::value_type,
-		// typename ft::iterator_traits<Iterator>::difference_type,
-		// typename ft::iterator_traits<Iterator>::pointer,
-		// typename ft::iterator_traits<Iterator>::reference>
+	class reverse_iterator 
 	{
 		public:
 			typedef	Iterator												iterator_type;
