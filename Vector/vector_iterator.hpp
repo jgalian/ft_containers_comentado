@@ -79,7 +79,6 @@ namespace ft
 			reference operator[] (difference_type n) const
 			{
 				return (this->_ptr + n);
-				//return (this->_ptr[i]);
 			}
 
 			// Pre-incremento
